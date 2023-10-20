@@ -34,11 +34,14 @@ struct form
 /** typedef struct form form_f - struct op
  * 
  * @form: The format.
- * @form_f: The function associated
+ * @func: The function associated
  */
+int _print(const char *format,...);
+int print_handle (const char *form, int *i, var_list list,char buffer[], int prin_flags, int print_width, print_precession, int print_size);
 
-typedef struct form form_f;
+/* specifiers*/
 
-int _printf( const char *format, ...);
-int print_handle (const char *form, int *i, va_list list, char buffer[], int print_flags int print_width int print_precision, int print_size);
-int print_percentage (va_list types, char buffer[], int print_flags int print_width int print_precision, int print_size);
+int print_flags(const char *format, int *i);
+int print_width(const char *format, int *i, va_list list);
+int print_precession(const char *format, int *i, va_list list);
+int print_size(const char *format, int *i);
